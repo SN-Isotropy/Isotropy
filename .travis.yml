@@ -1,0 +1,18 @@
+language: python
+python:
+  - "2.7"
+  - "3.5"
+install:
+  - travis_wait 5 ./install/install.sh
+  - source ./install/setup_env.sh
+  - python setup.py install
+
+script:
+  # Your test script goes here
+  - source ./install/setup_env.sh
+  # - export PATH="${store_dir}/miniconda/bin:$PATH"
+  # - source activate AnalyzeSN
+  - conda list 
+  - nosetests -v tests --with-coverage --cover-erase --cover-tests --cover-package=isotropy --cover-inclusive --cover-html --cover-html-dir=doc/coverage
+after_success:
+    - coveralls
