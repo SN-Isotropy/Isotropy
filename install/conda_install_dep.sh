@@ -7,7 +7,7 @@ export PATH="${store_dir}/miniconda/bin:$PATH"
 #CHANNEL=${CHANNEL:-"astropy"}
 conda config --add channels pandas 
 conda config --add channels astropy
-conda config --add channels zonca
+conda config --add channels conda-forge
 # conda create --yes -n AnalyzeSN python
 # source activate AnalyzeSN
 conda install -q --yes --file ./install/requirements.txt
